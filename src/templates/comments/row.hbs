@@ -1,0 +1,17 @@
+<tr>
+  <td>
+    {{commentor}}
+    {{#if lines}}
+    <p js-lines>
+      on lines
+      {{#each lines}}
+      {{this}} <span> thru </span>
+      {{/each}}
+    </p>
+    {{/if}}
+  </td>
+  <td>
+    <p class="date">{{date}}</p>
+    {{comment}}
+  </td>
+</tr>

@@ -1,0 +1,8 @@
+<ul class="list-unstyled">
+    {{#each this}}
+    <li>
+      <span class="{{#if loggedin}}good{{else}}bad{{/if}} glyphicon glyphicon-record"></span>
+      <a class="" href="/snippets/{{handle}}">{{handle}}</a>
+    </li>
+    {{/each}}
+</ul>

@@ -1,0 +1,21 @@
+{
+  "name": "Hack-a-thon",
+  "description": "2014 Hack-a-thon",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "nodemailer": "~0.6.0",
+    "mail-listener": "~0.7.1",
+    "socket.io": "~0.9.16",
+    "moment": "~2.5.0",
+    "underscore": "~1.5.2",
+    "q": "~1.0.0",
+    "holla": "~0.6.2"
+  },
+  "devDependencies": {
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-handlebars": "~0.6.0",
+    "bower": "~1.2.8"
+  }
+}
