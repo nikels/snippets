@@ -152,13 +152,6 @@ var IndexView = Backbone.View.extend({
 
     $comments.empty().append(content);
 
-    if(data.length === 0){
-      this.$('[js-comments], [js-form]').hide();
-      return;
-    }
-
-    this.$('[js-comments], [js-form]').show();
-
     data.forEach(_.bind(function(item, indx, array){
 
       item.date = moment(item.date).fromNow();

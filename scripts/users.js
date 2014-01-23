@@ -8,9 +8,10 @@ var handles = [
   , 'mhebert'
   , 'greg'
   , 'sdamani'
-  , 'eobryan'
+  , 'eddobryan'
   , 'ryan'
   , 'hwilson'
+  , 'patrick'
 ];
 var mongoose = require('mongoose');
 var UserModel = require('../src/models/user');
