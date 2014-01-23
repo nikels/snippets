@@ -3,10 +3,12 @@ this["JST"] = this["JST"] || {};
 this["JST"]["code"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
-
-  buffer += "<pre class=\"brush: ";
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n<pre class=\"brush: ";
   if (stack1 = helpers.language) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.language); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
@@ -15,6 +17,18 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   else { stack1 = (depth0 && depth0.code); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
     + "\n</pre>\n";
+  return buffer;
+  }
+
+function program3(depth0,data) {
+  
+  
+  return "\n<p>\n  No code yet.\n</p>\n";
+  }
+
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.code), {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n";
   return buffer;
   });
 
@@ -63,28 +77,42 @@ function program2(depth0,data) {
 this["JST"]["commentstable"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, self=this;
+
+function program1(depth0,data) {
   
+  
+  return "\n<table class=\"table\">\n  <tbody>\n  </tbody>\n</table>\n";
+  }
 
+function program3(depth0,data) {
+  
+  
+  return "\nNo comments yet.\n";
+  }
 
-  return "<table class=\"table\">\n  <tbody>\n  </tbody>\n</table>\n";
+  stack1 = helpers['if'].call(depth0, depth0, {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n";
+  return buffer;
   });
 
 this["JST"]["userslist"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+  var buffer = "", stack1, self=this, functionType="function", escapeExpression=this.escapeExpression;
 
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n    <li>\n      <a href=\"/snippets/";
+  buffer += "\n    <li>\n      <a class=\"";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.loggedin), {hash:{},inverse:self.program(4, program4, data),fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\" href=\"/snippets/";
   if (stack1 = helpers.handle) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.handle); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\">\n        <span class=\"";
-  stack1 = helpers['if'].call(depth0, (depth0 && depth0.loggedin), {hash:{},inverse:self.program(4, program4, data),fn:self.program(2, program2, data),data:data});
-  if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += " glyphicon glyphicon-record\"></span>\n        ";
+    + "\">\n        ";
   if (stack1 = helpers.handle) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.handle); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)

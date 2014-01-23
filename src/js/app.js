@@ -1,8 +1,8 @@
 var AppRouter = Backbone.Router.extend({
 
   routes: {
-    "snippets/:handle": "index"
-    , "snippets/post/:handle": "post"
+    "snippets/post": "post"
+    , "snippets/:handle": "index"
   }
 
   , view: null
@@ -21,6 +21,14 @@ var AppRouter = Backbone.Router.extend({
     });
 
     // Views (UI and Page)
+    var postView = new Backbone.View({
+      el: $('[js-post]')
+      , events: {
+        'click': function(){
+          appRouter.navigate('snippets/post', {trigger: true});
+        }
+      }
+    });
     this.usersView = new UsersView({
       el: $('[js-users]')
     });

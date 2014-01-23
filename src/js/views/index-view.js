@@ -147,9 +147,17 @@ var IndexView = Backbone.View.extend({
 
     var comment;
     var commentView;
-    var content = JST.commentstable();
+    var content = JST.commentstable(data);
+    var $comments = this.$('[js-comments]');
 
-    this.$('[js-comments]').empty().append(content);
+    $comments.empty().append(content);
+
+    if(data.length === 0){
+      this.$('[js-comments], [js-form]').hide();
+      return;
+    }
+
+    this.$('[js-comments], [js-form]').show();
 
     data.forEach(_.bind(function(item, indx, array){
 
@@ -162,13 +170,12 @@ var IndexView = Backbone.View.extend({
         , parent: this
       });
 
-      this.$('[js-comments] tbody').append(commentView.$el);
+      $comments.find('tbody').append(commentView.$el);
 
       this.comments.push(commentView);
 
       if(indx+1 === array.length){
 
-        var $comments = this.$('[js-comments]');
         var tableHeight = $comments.find('table').height();
 
         $comments.animate({

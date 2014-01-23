@@ -20,8 +20,8 @@ UserCollection.forEach(function(user){
       from: "SpareSnippet <snippets@sparefoot.com>", // sender address
       to: user.email, // list of receivers
       subject: "Snippets: Show us your code!", // Subject line
-      html: 'Upload your Snippet <a href="' + snippetServer + '/snippets/login/'+user.handle+'">here</a>', // plaintext body
-      text: "Upload your Snippet " + snippetServer + "/snippets/login/"+user.handle // html body
+      html: 'Upload your Snippet <a href="' + snippetServer + '/snippets/login/">here</a>', // plaintext body
+      text: "Upload your Snippet " + snippetServer + "/snippets/login/" // html body
   };
 
   // send mail with defined transport object

@@ -8,10 +8,12 @@ var handles = [
   , 'mhebert'
   , 'greg'
   , 'sdamani'
+  , 'eobryan'
   , 'ryan'
+  , 'hwilson'
 ];
 var mongoose = require('mongoose');
-var UserModel = require('./src/models/user');
+var UserModel = require('../src/models/user');
 var remove = Q.denodeify(UserModel.remove.bind(UserModel));
 var create = Q.denodeify(UserModel.create.bind(UserModel));
 var users = [];

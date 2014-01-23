@@ -41,7 +41,7 @@ app.get('/snippets/login/:handle', function (req, res) {
     io.sockets.emit('users', users);
   });
 
-  res.redirect('/snippets/post/'+handle);
+  res.redirect('/snippets/post');
 });
 
 app.post('/snippets/code', function (req, res) {
@@ -97,7 +97,8 @@ io.sockets.on('connection', function(socket) {
 
     findOneUser({handle: handle})
     .then(function(user){
-      socket.emit('code', user.snippet);
+      var snippet = user.snippet;
+      socket.emit('code', snippet);
     });
   });
 

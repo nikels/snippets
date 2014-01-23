@@ -1,3 +1,7 @@
+[js-post] {
+  margin: 0 0 15px 0;
+}
+
 [js-comments] table {
   margin-bottom: 0;
 }
@@ -17,17 +21,11 @@
   padding-bottom: 5px;
 }
 
-.glyphicon.good,
-.glyphicon.bad {
-  position: relative;
-  top: 3px;
-}
-
-.glyphicon.good {
+.good {
   color: green;
 }
 
-.glyphicon.bad {
+.bad {
   color: red;
 }
 
