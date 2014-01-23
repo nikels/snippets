@@ -5,8 +5,8 @@ var UserCollection = require('./src/collections/users');
 var smtpTransport = nodemailer.createTransport("SMTP",{
     service: "Gmail",
     auth: {
-        user: "ncastrop@sparefoot.com",
-        pass: "sparesquarehare"
+        user: "",
+        pass: ""
     }
 });
 
