@@ -1,3 +1,7 @@
+[js-comments] table {
+  margin-bottom: 0;
+}
+
 [js-comments] td:first-child {
   background-color: #fafafa;
 }
@@ -7,10 +11,6 @@
 
 [js-comments] span:last-child {
   display: none;
-}
-
-[js-comments] table {
-  margin-top: 20px;
 }
 
 [js-users] li {
@@ -35,3 +35,13 @@
   background-color: beige !important;
 }
 
+.nav > li {
+  margin: 0;
+  padding: 0;
+}
+
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 3px 15px;
+}

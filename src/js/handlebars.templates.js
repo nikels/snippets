@@ -66,29 +66,29 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<table class=\"table table-bordered\">\n  <tbody>\n  </tbody>\n</table>\n";
+  return "<table class=\"table\">\n  <tbody>\n  </tbody>\n</table>\n";
   });
 
 this["JST"]["userslist"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, self=this, functionType="function", escapeExpression=this.escapeExpression;
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n    <li>\n      <span class=\"";
+  buffer += "\n    <li>\n      <a href=\"/snippets/";
+  if (stack1 = helpers.handle) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.handle); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\">\n        <span class=\"";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.loggedin), {hash:{},inverse:self.program(4, program4, data),fn:self.program(2, program2, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += " glyphicon glyphicon-record\"></span>\n      <a class=\"\" href=\"/snippets/";
+  buffer += " glyphicon glyphicon-record\"></span>\n        ";
   if (stack1 = helpers.handle) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.handle); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\">";
-  if (stack1 = helpers.handle) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = (depth0 && depth0.handle); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
-  buffer += escapeExpression(stack1)
-    + "</a>\n    </li>\n    ";
+    + "\n      </a>\n    </li>\n    ";
   return buffer;
   }
 function program2(depth0,data) {
@@ -103,7 +103,7 @@ function program4(depth0,data) {
   return "bad";
   }
 
-  buffer += "<ul class=\"list-unstyled\">\n    ";
+  buffer += "<ul class=\"nav nav-pills nav-stacked\">\n    ";
   stack1 = helpers.each.call(depth0, depth0, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n</ul>\n";

@@ -7,6 +7,9 @@ var AppRouter = Backbone.Router.extend({
 
   , view: null
 
+  // UI Views
+  , usersView: null
+
   , initialize: function(){
     Backbone.Router.prototype.initialize.apply(this, arguments);
 
@@ -18,7 +21,7 @@ var AppRouter = Backbone.Router.extend({
     });
 
     // Views (UI and Page)
-    var usersView = new UsersView({
+    this.usersView = new UsersView({
       el: $('[js-users]')
     });
 
@@ -42,11 +45,13 @@ var AppRouter = Backbone.Router.extend({
   , index: function(handle){
     this.postView.$el.hide();
     this.indexView.show(handle);
+    this.usersView.highlight(handle);
   }
 
   , post: function(handle) {
     this.indexView.hide();
     this.postView.show(handle);
+    this.usersView.highlight(handle);
   }
 
 });

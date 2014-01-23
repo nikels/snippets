@@ -17,15 +17,20 @@ var IndexView = Backbone.View.extend({
   , initialize: function(){
     Backbone.View.prototype.initialize.apply(this, arguments);
 
+    this.resize();
+    $(window).on('resize', _.bind(this.resize, this));
+  }
+
+  , resize: function(){
     var winHeight = $(window).height();
 
     this.$('[js-code]').css({
-      height: winHeight
+      height: Math.floor(winHeight * 0.7)
       , overflow: 'auto'
     });
 
     this.$('[js-comments]').css({
-      height: winHeight - this.$('form').height()
+      height: Math.floor(winHeight * 0.3) - this.$('form').height()
       , overflow: 'auto'
     });
   }
@@ -157,11 +162,19 @@ var IndexView = Backbone.View.extend({
         , parent: this
       });
 
-      this.$('[js-comments] tbody').prepend(commentView.$el);
+      this.$('[js-comments] tbody').append(commentView.$el);
 
       this.comments.push(commentView);
 
       if(indx+1 === array.length){
+
+        var $comments = this.$('[js-comments]');
+        var tableHeight = $comments.find('table').height();
+
+        $comments.animate({
+          scrollTop: tableHeight
+        }, 10);
+
         this.highlightLines(item.lines[0], item.lines[1]);
       }
     }, this));
